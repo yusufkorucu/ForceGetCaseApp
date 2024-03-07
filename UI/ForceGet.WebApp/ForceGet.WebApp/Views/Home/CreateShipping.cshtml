@@ -1,0 +1,196 @@
+﻿@using ForceGet.Domain.Helper
+@using ForceGet.Domain.ViewModel
+@using ForceGet.Entity.Enums
+@model CreateViewModel;
+
+
+<div class="d-flex flex-column-fluid">
+    <div class="container">
+        <div class="card card-custom">
+            <div class="card-header" style="">
+                <div class="card-title">
+                    <h3 class="card-label">
+                        Create Shipping
+                    </h3>
+                </div>
+                <div class="card-toolbar">
+                    <a class="btn btn-light-primary font-weight-bolder btn-sm" href="@Url.Action("Index","Home")"><< Listeye Dön</a>
+                </div>
+            </div>
+            <div class="card-body">
+
+                <div class="row">
+                    <div class="col-xl-12">
+
+                        <form id="frmAdd">
+                            
+                            <div class="form-group row">
+                                <label class="col-xl-2 col-lg-2 col-form-label">
+                                    Mode:
+                                </label>
+                                <div class="col-lg-10 col-xl-10">
+                                    <select class="custom-select form-control" id="mode" name="Mode">
+                                        <option value="" disabled selected>Seçiniz</option>
+                                        @foreach (var item in Model.ModeTypeEnum.EnumList)
+                                        {
+                                            <option value="@item.Value">@item.Text</option>
+                                        }
+                                    </select>
+                                </div>
+                            </div>
+
+
+                            <div class="form-group row">
+                                <label class="col-xl-2 col-lg-2 col-form-label">
+                                    Movemet Type:
+                                </label>
+                                <div class="col-lg-10 col-xl-10">
+                                    <select class="custom-select form-control" id="movementType" name="MovementType">
+                                        <option value="" disabled selected>Seçiniz</option>
+                                        @foreach (var item in Model.MovementTypeEnum.EnumList)
+                                        {
+                                            <option value="@item.Value">@item.Text</option>
+                                        }
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label class="col-xl-2 col-lg-2 col-form-label">
+                                    Incoterms:
+                                </label>
+                                <div class="col-lg-10 col-xl-10">
+                                    <select class="custom-select form-control" id="incoterms" name="Incoterms">
+                                        <option value="" disabled selected>Seçiniz</option>
+                                        @foreach (var item in Model.IncotermsEnum.EnumList)
+                                        {
+                                            <option value="@item.Value">@item.Text</option>
+                                        }
+                                    </select>
+                                </div>
+                            </div>
+
+
+                            <div class="form-group row">
+                                <label class="col-xl-2 col-lg-2 col-form-label">Country: </label>
+                                <div class="col-lg-10 col-xl-10">
+                                    <select class="custom-select form-control" id="countryId" name="CountryId">
+                                        <option value="" disabled selected>Seçiniz</option>
+                                        @foreach (var item in Model.Countries)
+                                        {
+                                            <option value="@item.Id">@item.Name</option>
+                                        }
+                                    </select>
+                                </div>
+                            </div>
+
+
+                            <div class="form-group row">
+                                <label class="col-xl-2 col-lg-2 col-form-label">City: </label>
+                                <div class="col-lg-10 col-xl-10">
+                                    <select class="custom-select form-control" id="cityId" name="CityId">
+                                        <option value="" disabled selected>Seçiniz</option>
+                                        @foreach (var item in Model.Cities)
+                                        {
+                                            <option value="@item.Id">@item.Name</option>
+                                        }
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label class="col-xl-2 col-lg-2 col-form-label">
+                                    Package Type:
+                                </label>
+                                <div class="col-lg-10 col-xl-10">
+                                    <select class="custom-select form-control" id="packageType" name="PackageType">
+                                        <option value="" disabled selected>Seçiniz</option>
+                                        @foreach (var item in Model.PackageTypeEnum.EnumList)
+                                        {
+                                            <option value="@item.Value">@item.Text</option>
+                                        }
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label class="col-xl-2 col-lg-2 col-form-label">
+                                    Unit 1 Size:
+                                </label>
+
+                                <div class="col-lg-4 col-xl-4">
+                                    <input type="number" class="form-control" name="unit1Size" id="Unit1Size" />
+                                </div>
+
+                                <label class="col-xl-2 col-lg-2 col-form-label">
+                                    Unit 1:
+                                </label>
+                                <div class="col-lg-4 col-xl-4">
+                                    <select class="custom-select form-control" id="unit1Id" name="Unit1Id">
+                                        <option value="" disabled selected>Seçiniz</option>
+                                        @foreach (var item in Model.Unities1)
+                                        {
+                                            <option value="@item.Id">@item.Name</option>
+                                        }
+                                    </select>
+                                </div>
+                            </div>
+
+
+                            <div class="form-group row">
+                                <label class="col-xl-2 col-lg-2 col-form-label">
+                                    Unit 2 Size:
+                                </label>
+
+                                <div class="col-lg-4 col-xl-4">
+                                    <input type="number" class="form-control" name="unit2Size" id="Unit2Size" />
+                                </div>
+
+                                <label class="col-xl-2 col-lg-2 col-form-label">
+                                    Unit 2:
+                                </label>
+                                <div class="col-lg-4 col-xl-4">
+                                    <select class="custom-select form-control" id="unit2Id" name="Unit2Id">
+                                        <option value="" disabled selected>Seçiniz</option>
+                                        @foreach (var item in Model.Unities2)
+                                        {
+                                            <option value="@item.Id">@item.Name</option>
+                                        }
+                                    </select>
+                                </div>
+                            </div>
+
+
+                            <div class="form-group row">
+                                <label class="col-xl-2 col-lg-2 col-form-label">
+                                    Currencies:
+                                </label>
+                                <div class="col-lg-10 col-xl-10">
+                                    <select class="custom-select form-control" id="currencyId" name="CurrencyId">
+                                        <option value="" disabled selected>Seçiniz</option>
+                                        @foreach (var item in Model.Currencies)
+                                        {
+                                            <option value="@item.Id">@item.Name</option>
+                                        }
+                                    </select>
+                                </div>
+                            </div>
+
+
+                        </form>
+                    </div>
+                </div>
+
+                <div class="d-flex justify-content-between border-top mt-5 pt-10">
+                    <div>
+                        <button id="btnSave" class="btn btn-danger btn-lg py-4">Save</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="~/Scripts/ShippingInfo/ShippingAdd.js?v@(System.IO.File.GetLastWriteTime(@"wwwroot/Scripts/ShippingInfo/ShippingAdd.js").Ticks.ToString())"></script>
+}
